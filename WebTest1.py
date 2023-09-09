@@ -1,21 +1,18 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
-#service = Service(executable_path='C:\Users\Admin\WebAT\chromedriver')  # указываем путь до драйвера
-browser = webdriver.Chrome()
-
-url = "https://ya.ru"
-
+url = 'https://vk.com'
+service = Service(executable_path='C:/Users/Admin/WebAT/chromedriver/chromedriver.exe')  # указываем путь до драйвера
+browser = webdriver.Chrome(service=service)
 try:
-    browser.get(url=url)
-    
-except:
-
-finally:
-    browser.close()
+    browser.get(url)
+    time.sleep(10)
     browser.quit()
+except Exception as ex:
+    print(ex)
+    browser.quit()
+browser.quit()
 
 
